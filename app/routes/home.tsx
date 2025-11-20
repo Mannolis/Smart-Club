@@ -7,7 +7,10 @@ export function meta({}: Route.MetaArgs) {
     { name: "description", content: "Welcome to Smart Club!" },
   ];
 }
-
+ 
 export default function Home() {
   return <h1>n</h1>;
 }
+
+
+
