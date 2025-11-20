@@ -9,5 +9,5 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <h1>n</h1>;
+  return <h1>ninja</h1>;
 }
