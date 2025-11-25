@@ -1,6 +1,8 @@
 import type { Route } from "./+types/home";
 import React from "react";
+import { useNavigate } from "react-router";
 import "../app.css"; // CSS file
+import Navbar from "./navbar";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -31,35 +33,12 @@ function SignupButton() {
 
 export default function HomePage() {
   const isLoggedIn = false; // change to true to test
+  let navigate = useNavigate();
 
   return (
   <div>
-    {/* Navbar */}
-    <nav className="navbar">
-      <div className="logo">Smart Club</div>
-
-      <div className="nav-buttons">
-        <button>Home</button>
-        <button>News</button>
-        <button>Discover Clubs</button>
-        <button>Events</button>
-        <button>About Us</button>
-        <button>Event Calendar</button>
-      </div>
-
-  {/* Right Side: Profile OR Log In */}
-  <div className="profile-area">
-    {isLoggedIn ? (
-      <div className="profile">
-        <img src="https://via.placeholder.com/32" alt="Profile" />
-        <span>Username</span>
-      </div>
-    ) : (
-      <button className="login-btn">Log In / Sign Up</button>
-    )}
-  </div>
-</nav>
-
+    <Navbar />
+    
   {/* Hero Section */}
   <section className="hero">
   <div className="hero-overlay">
