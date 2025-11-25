@@ -9,14 +9,17 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-function SignedUpButton() {
-  
+function SignupButton() {
   const [signedUp, setSignedUp] = React.useState(false);
+
+  function toggleSignup() {
+    setSignedUp(!signedUp);
+  }
 
   return (
     <button
       className="signup-btn"
-      onClick={() => setSignedUp(true)}
+      onClick={toggleSignup}
       style={{
         backgroundColor: signedUp ? "green" : undefined
       }}
@@ -84,7 +87,7 @@ export default function HomePage() {
       </p>
 
       <div className="event-buttons">
-        <SignedUpButton />
+        <SignupButton />
         <button className="contact-btn">Learn More</button>
       </div>
     </div>
@@ -98,7 +101,7 @@ export default function HomePage() {
       </p>
 
       <div className="event-buttons">
-        <SignedUpButton />
+        <SignupButton />
         <button className="contact-btn">Learn More</button>
       </div>
     </div>
@@ -112,7 +115,7 @@ export default function HomePage() {
       </p>
 
       <div className="event-buttons">
-        <SignedUpButton />
+        <SignupButton />
         <button className="contact-btn">Learn More</button>
       </div>
     </div>
