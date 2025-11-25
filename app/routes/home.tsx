@@ -9,6 +9,23 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
+function SignedUpButton() {
+  
+  const [signedUp, setSignedUp] = React.useState(false);
+
+  return (
+    <button
+      className="signup-btn"
+      onClick={() => setSignedUp(true)}
+      style={{
+        backgroundColor: signedUp ? "green" : undefined
+      }}
+    >
+      {signedUp ? "Signed up!" : "Sign Up"}
+    </button>
+  );
+}
+
 export default function HomePage() {
   const isLoggedIn = false; // change to true to test
 
@@ -40,8 +57,8 @@ export default function HomePage() {
   </div>
 </nav>
 
-      {/* Hero Section */}
-      <section className="hero">
+  {/* Hero Section */}
+  <section className="hero">
   <div className="hero-overlay">
     <h1>Welcome to Smart Club</h1>
     <p>
@@ -67,7 +84,7 @@ export default function HomePage() {
       </p>
 
       <div className="event-buttons">
-        <button className="signup-btn">Sign Up</button>
+        <SignedUpButton />
         <button className="contact-btn">Learn More</button>
       </div>
     </div>
@@ -81,7 +98,7 @@ export default function HomePage() {
       </p>
 
       <div className="event-buttons">
-        <button className="signup-btn">Sign Up</button>
+        <SignedUpButton />
         <button className="contact-btn">Learn More</button>
       </div>
     </div>
@@ -95,7 +112,7 @@ export default function HomePage() {
       </p>
 
       <div className="event-buttons">
-        <button className="signup-btn">Sign Up</button>
+        <SignedUpButton />
         <button className="contact-btn">Learn More</button>
       </div>
     </div>

@@ -212,14 +212,14 @@ body {
   color: var(--aub-maroon);
 }
 
-/* Event buttons container */
+
 .event-buttons {
   margin-top: 10px;
   display: flex;
   gap: 10px;
 }
 
-/* Restored Sign Up button */
+
 .signup-btn {
   padding: 8px 14px;
   background-color: var(--aub-maroon);
@@ -234,7 +234,9 @@ body {
   background-color: var(--aub-maroon-dark);
 }
 
-/* Restored Contact button */
+
+
+
 .contact-btn {
   padding: 8px 14px;
   background-color:var(--aub-maroon);
