@@ -1,40 +1,33 @@
 import "../app.css"; // CSS file
+import { Link } from "react-router";
 import Navbar from "./navbar";
+import clubsData from "../data/clubs.json";
+import societiesData from "../data/societies.json"
+
 
 export default function DiscoverClubs() {
+  const clubs = clubsData;
+  const societies = societiesData;
   return (
     <div className="clubs">
         <Navbar />
         <h1>Current Clubs</h1>
-        <ul>
-          <li>Athletics club</li>
-          <li>Automotive Club</li>
-          <li>Chess Club</li>
-          <li>Consulting Club</li>
-          <li>Cooking club</li>
-          <li>Dance club</li>
-          <li>Finance and Investment Club</li>
-          <li>Math Club</li>
-          <li>MUN Club</li>
-          <li>Music club</li>
-          <li>Pause the Loop Club</li>
-          <li>Personal Branding/Digital Marketing Club</li>
-          <li>Philosophy Club</li>
-          <li>Programming club</li>
-          <li>Robotics Club</li>
-          <li>Running Club</li>
-          <li>Social Events Club</li>
-          <li>Stargazing club</li>
-          <li>Tennis and Paddle Club</li>
-          <li>UMOJA Club</li>
-        </ul>
+        {
+          clubs.map((club) => (
+              <Link to={`/discover-clubs/${club.id}`} className = "club-link">
+                {club.name}
+              </Link>
+          ))
+        }
 
         <h1>Current Societies</h1>
-        <ul>
-          <li> Business Students Society</li>
-          <li>PPE Society</li>
-          <li>Psychology Students Society</li>
-        </ul>
+        {
+          societies.map((society) => (
+              <Link to={`/discover-clubs/${society.id}`} className = "club-link">
+                {society.name}
+              </Link>
+          ))
+        }
     </div>
   );
 }

@@ -1,0 +1,82 @@
+[
+    {
+        "id": "001",
+        "name": "Athletics club"
+    },
+    {
+        "id": "002",
+        "name": "Automotive club"
+    },
+    {
+        "id": "003",
+        "name": "Chess club"
+    },
+    {
+        "id": "004",
+        "name": "Consulting club"
+    },
+    {
+        "id": "005",
+        "name": "Cooking club"
+    },
+    {
+        "id": "006",
+        "name": "Dance club"
+    },
+    {
+        "id": "007",
+        "name": "Finance and Investment club"
+    },
+    {
+        "id": "008",
+        "name": "Math club"
+    },
+    {
+        "id": "009",
+        "name": "MUN club"
+    },
+    {
+        "id": "010",
+        "name": "Music club"
+    },
+    {
+        "id": "011",
+        "name": "Pause the Loop club"
+    },
+    {
+        "id": "012",
+        "name": "Personal Branding/Digital Marketing club"
+    },
+    {
+        "id": "013",
+        "name": "Philosophy club"
+    },
+    {
+        "id": "014",
+        "name": "Programming club"
+    },
+    {
+        "id": "015",
+        "name": "Robotics club"
+    },
+    {
+        "id": "016",
+        "name": "Running club"
+    },
+    {
+        "id": "017",
+        "name": "Social Events club"
+    },
+    {
+        "id": "018",
+        "name": "Stargazing club"
+    },
+    {
+        "id": "019",
+        "name": "Tennis and Paddle club"
+    },
+    {
+        "id": "020",
+        "name": "UMOJA club"
+    }
+]

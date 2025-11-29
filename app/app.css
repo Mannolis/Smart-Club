@@ -259,33 +259,27 @@ body {
   text-align: center;
 }
 
-.clubs ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px auto;
+.club-link {
+  margin: 10px auto;
   max-width: 600px;
-}
-
-.clubs li {
-  background: #f8f8f8;
+  text-decoration: none;
   color: var(--aub-maroon-dark);
-  padding: 18px 22px;
-  margin-bottom: 12px;
+  display: flex;
+  padding: 16px 22px;
+  background: white;
   border-radius: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
   font-size: 20px;
   font-weight: 700;
-  cursor: pointer;
   transition: transform 0.15s ease, background-color 0.15s ease;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
-.clubs li:hover {
-  background: #ececec;
+.club-link:hover {
+  background: #e8e8e8;
   transform: translateY(-3px);
 }
 
-.clubs li:active {
+.club-link:active {
   transform: scale(0.97);
 }
