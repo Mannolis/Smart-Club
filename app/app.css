@@ -250,3 +250,42 @@ body {
 .contact-btn:hover {
   background-color: var(--aub-maroon-dark);
 }
+
+/*-------------------------------------
+          Current Clubs
+-------------------------------------*/
+.clubs h1 {
+  font-size: 40px;
+  text-align: center;
+}
+
+.clubs ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.clubs li {
+  background: #f8f8f8;
+  color: var(--aub-maroon-dark);
+  padding: 18px 22px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.clubs li:hover {
+  background: #ececec;
+  transform: translateY(-3px);
+}
+
+.clubs li:active {
+  transform: scale(0.97);
+}
