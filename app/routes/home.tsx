@@ -10,12 +10,6 @@ export function meta({}: Route.MetaArgs) {
     { name: "description", content: "Welcome to Smart Club!" },
   ];
 }
-<<<<<<< HEAD
- 
-export default function Home() {
-  return <h1>n</h1>;
-}
-=======
 
 function SignupButton() {
   const [signedUp, setSignedUp] = React.useState(false);
@@ -111,4 +105,3 @@ export default function HomePage() {
 
 
 
->>>>>>> main
