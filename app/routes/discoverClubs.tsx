@@ -28,6 +28,13 @@ export default function DiscoverClubs() {
           <li>Tennis and Paddle Club</li>
           <li>UMOJA Club</li>
         </ul>
+
+        <h1>Current Societies</h1>
+        <ul>
+          <li> Business Students Society</li>
+          <li>PPE Society</li>
+          <li>Psychology Students Society</li>
+        </ul>
     </div>
   );
 }
