@@ -32,8 +32,6 @@ function SignupButton() {
 }
 
 export default function HomePage() {
-  const isLoggedIn = false; // change to true to test
-  let navigate = useNavigate();
 
   return (
   <div>
