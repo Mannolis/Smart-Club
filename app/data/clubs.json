@@ -1,82 +1,262 @@
 [
     {
         "id": "001",
-        "name": "Athletics club"
+        "name": "Athletics club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "002",
-        "name": "Automotive club"
+        "name": "Automotive club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "003",
-        "name": "Chess club"
+        "name": "Chess club",
+        "description": "We play chess for fun",
+        "events": [
+            {
+                "id": "001",
+                "title": "AUB Chess Tournament",
+                "description": "A swiss style tournament for all AUBM students",
+                "date": "12/12/25"
+            }
+        ]
     },
     {
         "id": "004",
-        "name": "Consulting club"
+        "name": "Consulting club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "005",
-        "name": "Cooking club"
+        "name": "Cooking club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "006",
-        "name": "Dance club"
+        "name": "Dance club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "007",
-        "name": "Finance and Investment club"
+        "name": "Finance and Investment club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "008",
-        "name": "Math club"
+        "name": "Math club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "009",
-        "name": "MUN club"
+        "name": "MUN club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "010",
-        "name": "Music club"
+        "name": "Music club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "011",
-        "name": "Pause the Loop club"
+        "name": "Pause the Loop club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "012",
-        "name": "Personal Branding/Digital Marketing club"
+        "name": "Person Branding/Digital Marketing club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "013",
-        "name": "Philosophy club"
+        "name": "Philosophy club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "014",
-        "name": "Programming club"
+        "name": "Programming club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "015",
-        "name": "Robotics club"
+        "name": "Robotics club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "016",
-        "name": "Running club"
+        "name": "Running club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "017",
-        "name": "Social Events club"
+        "name": "Social Events club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "018",
-        "name": "Stargazing club"
+        "name": "Stargazing club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "019",
-        "name": "Tennis and Paddle club"
+        "name": "Tennis and Paddle club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     },
     {
         "id": "020",
-        "name": "UMOJA club"
+        "name": "Umoja club",
+        "description": "",
+        "events": [
+            {
+                "id": "001",
+                "title": "",
+                "description": "",
+                "date": ""
+            }
+        ]
     }
 ]

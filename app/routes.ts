@@ -15,4 +15,5 @@ export default [
     route("event-calendar", "routes/eventCalendar.tsx"),
     route("news", "routes/news.tsx"),
     route("discover-clubs", "routes/discoverClubs.tsx"),
+    route("discover-clubs/:clubId", "routes/discover-clubs.$clubId.tsx")
 ] satisfies RouteConfig;
