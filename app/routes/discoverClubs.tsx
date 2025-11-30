@@ -9,7 +9,7 @@ export default function DiscoverClubs() {
   const clubs = clubsData;
   const societies = societiesData;
   return (
-    <div className="clubs">
+    <div className="discover-clubs">
         <Navbar />
         <h1>Current Clubs</h1>
         {

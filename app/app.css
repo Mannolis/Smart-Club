@@ -172,6 +172,18 @@ body {
   background-color: var(--aub-white);
 }
 
+.for-you h1 {
+  font-size: 40px;
+  margin-bottom:16px;
+  color: var(--aub-black);
+  text-align: center
+}
+
+.for-you p {
+  font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
+  color: var(--aub-black);
+}
 .for-you h2 {
   font-size: 32px;
   margin-bottom: 16px;
@@ -252,9 +264,9 @@ body {
 }
 
 /*-------------------------------------
-          Current Clubs
+          Discover Clubs Page
 -------------------------------------*/
-.clubs h1 {
+.discover-clubs h1 {
   font-size: 40px;
   text-align: center;
 }
