@@ -1,7 +1,6 @@
+import React, { useEffect, useState } from "react";
 import "../app.css";
 import Navbar from "./navbar";
-import React from "react";
-
 
 function SignupButton() {
   const [signedUp, setSignedUp] = React.useState(false);
@@ -15,7 +14,7 @@ function SignupButton() {
       className="signup-btn"
       onClick={toggleSignup}
       style={{
-        backgroundColor: signedUp ? "green" : undefined
+        backgroundColor: signedUp ? "green" : undefined,
       }}
     >
       {signedUp ? "Signed up!" : "Sign Up"}
@@ -23,96 +22,237 @@ function SignupButton() {
   );
 }
 
-export default function Events() {
-  // Placeholder events – newest first
-  const events = [
-  {
-    id: 1,
-    title: "Robotics Club – Intro to Autonomous Systems",
-    time: "April 5, 2025 · 5:00 PM",
-    description:
-      "An introductory workshop covering the basics of autonomous robots, sensors, and control systems."
-  },
-  {
-    id: 2,
-    title: "Finance and Investment Club – Stock Market Basics",
-    time: "April 2, 2025 · 6:30 PM",
-    description:
-      "Learn the fundamentals of stock markets, portfolio building, and long-term investing strategies."
-  },
-  {
-    id: 3,
-    title: "Programming Club – Hack Night",
-    time: "March 29, 2025 · 4:00 PM",
-    description:
-      "Collaborative coding evening focused on solving problems, practicing algorithms, and sharing projects."
-  },
-  {
-    id: 4,
-    title: "Chess Club – Open Tournament",
-    time: "March 27, 2025 · 3:00 PM",
-    description:
-      "Friendly chess tournament open to all skill levels. No prior competitive experience required."
-  },
-  {
-    id: 5,
-    title: "Business Students Society – Career Networking Session",
-    time: "March 25, 2025 · 6:00 PM",
-    description:
-      "Meet alumni and professionals to discuss career paths, internships, and industry expectations."
-  },
-  {
-    id: 6,
-    title: "Psychology Students Society – Mental Health Awareness Talk",
-    time: "March 22, 2025 · 5:30 PM",
-    description:
-      "An open discussion on mental well-being, stress management, and available student support services."
-  },
-  {
-    id: 7,
-    title: "Dance Club – Open Practice Session",
-    time: "March 20, 2025 · 4:30 PM",
-    description:
-      "Join the dance club for an open practice session exploring different dance styles and routines."
-  },
-  {
-    id: 8,
-    title: "Athletics Club – Campus Fitness Challenge",
-    time: "March 18, 2025 · 2:00 PM",
-    description:
-      "Team-based fitness challenges designed to promote physical health and friendly competition."
-  },
-  {
-    id: 9,
-    title: "PPE Society – Debate on Contemporary Global Issues",
-    time: "March 15, 2025 · 6:00 PM",
-    description:
-      "Interactive debate session discussing current political, philosophical, and economic topics."
-  }
+
+type EventItem = {
+  id: number;
+  club: string;
+  title: string;
+  time: string;
+  description: string;
+};
+
+const CLUBS_AND_SOCIETIES = [
+  "Athletics club",
+  "Automotive club",
+  "Chess club",
+  "Consulting club",
+  "Cooking club",
+  "Dance club",
+  "Finance and Investment club",
+  "Math club",
+  "MUN club",
+  "Music club",
+  "Pause the Loop club",
+  "Person Branding/Digital Marketing club",
+  "Philosophy club",
+  "Programming club",
+  "Robotics club",
+  "Running club",
+  "Social Events club",
+  "Stargazing club",
+  "Tennis and Paddle club",
+  "Umoja club",
+  "Business Students Society",
+  "PPE Society",
+  "Psychology Students Society",
 ];
+
+export default function Events() {
+  const [events, setEvents] = useState<EventItem[]>([]);
+  const [adminMode, setAdminMode] = useState(false);
+
+  const [newEvent, setNewEvent] = useState({
+    club: "",
+    title: "",
+    time: "",
+    description: "",
+  });
+
+  /* -----------------------------
+     Load events from localStorage
+  ------------------------------*/
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const storedEvents = localStorage.getItem("aubm-events");
+    if (storedEvents) {
+      try {
+        setEvents(JSON.parse(storedEvents));
+      } catch {
+        setEvents([]);
+      }
+    }
+  }, []);
+
+  /* -----------------------------
+     Save events to localStorage
+  ------------------------------*/
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    localStorage.setItem("aubm-events", JSON.stringify(events));
+  }, [events]);
+
+  function handleFieldChange(
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) {
+    const { name, value } = e.target;
+    setNewEvent((prev) => ({ ...prev, [name]: value }));
+  }
+
+  function handleAddEvent(e: React.FormEvent) {
+    e.preventDefault();
+
+    if (!newEvent.club || !newEvent.title || !newEvent.time) {
+      alert("Please fill in club, title, and time.");
+      return;
+    }
+
+    const eventToAdd: EventItem = {
+      id: Date.now(),
+      club: newEvent.club,
+      title: newEvent.title,
+      time: newEvent.time,
+      description: newEvent.description || "No description provided.",
+    };
+
+    setEvents((prev) => [eventToAdd, ...prev]);
+
+    setNewEvent({
+      club: "",
+      title: "",
+      time: "",
+      description: "",
+    });
+  }
+
+  /* -----------------------------
+     DELETE EVENT (ADMIN ONLY)
+  ------------------------------*/
+  function handleDeleteEvent(eventId: number) {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this event?"
+    );
+    if (!confirmDelete) return;
+
+    setEvents((prev) => prev.filter((event) => event.id !== eventId));
+  }
 
   return (
     <div>
       <Navbar />
 
-      <div style={{ padding: "40px" }}>
-        <h1 style={{ color: "var(--aub-maroon)", textAlign: "center" }}>
-          Latest Events
-        </h1>
+      <div className="events-page">
+        <div className="events-header">
+          <h1>Events</h1>
 
-        {events.map((event) => (
-          <div key={event.id} className="event-card">
-            <div className="event-title">{event.title}</div>
-            <div className="event-time">{event.time}</div>
-            <div className="event-description">{event.description}</div>
+          <label className="admin-toggle">
+            <input
+              type="checkbox"
+              checked={adminMode}
+              onChange={(e) => setAdminMode(e.target.checked)}
+            />
+            <span> Admin mode</span>
+          </label>
+        </div>
 
-            {/* ✅ Uses your existing buttons */}
-            <div className="event-buttons">
-              <SignupButton />
-              <button className="contact-btn">Contact for Details</button>
+        {/* -----------------------------
+           ADD EVENT FORM (ADMIN)
+        ------------------------------*/}
+        {adminMode && (
+          <form className="event-form" onSubmit={handleAddEvent}>
+            <h2>Add Event</h2>
+
+            <div className="form-row">
+              <label>
+                Club / Society
+                <select
+                  name="club"
+                  value={newEvent.club}
+                  onChange={handleFieldChange}
+                >
+                  <option value="">Select a club…</option>
+                  {CLUBS_AND_SOCIETIES.map((club) => (
+                    <option key={club} value={club}>
+                      {club}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <label>
+                Event Title
+                <input
+                  name="title"
+                  value={newEvent.title}
+                  onChange={handleFieldChange}
+                  placeholder="Event title"
+                />
+              </label>
             </div>
-          </div>
-        ))}
+
+            <div className="form-row">
+              <label>
+                Date & Time
+                <input
+                  name="time"
+                  value={newEvent.time}
+                  onChange={handleFieldChange}
+                  placeholder="April 3, 2025 · 6:00 PM"
+                />
+              </label>
+            </div>
+
+            <div className="form-row">
+              <label className="full-width">
+                Description
+                <textarea
+                  name="description"
+                  rows={3}
+                  value={newEvent.description}
+                  onChange={handleFieldChange}
+                />
+              </label>
+            </div>
+
+            <button type="submit" className="signup-btn">
+              Add Event
+            </button>
+          </form>
+        )}
+
+        {/* -----------------------------
+           EVENTS LIST
+        ------------------------------*/}
+        {events.length === 0 ? (
+          <p>No events have been added yet.</p>
+        ) : (
+          events.map((event) => (
+            <div key={event.id} className="event-card">
+              <div className="event-title">
+                {event.title}
+                <span style={{ fontWeight: 400 }}> ({event.club})</span>
+              </div>
+
+              <div className="event-time">{event.time}</div>
+              <div className="event-description">{event.description}</div>
+
+              <div className="event-buttons">
+                <SignupButton />
+                <button className="contact-btn">Contact for Details</button>
+
+                {adminMode && (
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDeleteEvent(event.id)}
+                  >
+                    Delete
+                  </button>
+                )}
+              </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

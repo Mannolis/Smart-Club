@@ -283,3 +283,82 @@ body {
 .club-link:active {
   transform: scale(0.97);
 }
+
+/* ---------------------------
+   EVENTS PAGE LAYOUT
+----------------------------*/
+.events-page {
+  padding: 32px;
+}
+
+.events-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.events-header h1 {
+  margin: 0;
+  font-size: 32px;
+  color: var(--aub-maroon);
+}
+
+/* admin toggle */
+.admin-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--aub-maroon);
+}
+
+/* ---------------------------
+   ADD EVENT FORM
+----------------------------*/
+.event-form {
+  background-color: var(--aub-white);
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 24px;
+}
+
+.event-form h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 20px;
+  color: var(--aub-maroon-dark);
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.form-row label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: var(--aub-maroon-dark);
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  margin-top: 4px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #d4d4d4;
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.full-width {
+  flex-basis: 100%;
+}
