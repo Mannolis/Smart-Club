@@ -184,6 +184,7 @@ body {
   font-family: 'Times New Roman', Times, serif;
   color: var(--aub-black);
 }
+
 .for-you h2 {
   font-size: 32px;
   margin-bottom: 16px;
@@ -197,13 +198,22 @@ body {
 /* --------------------------------------------------
    EVENT CARDS
 -------------------------------------------------- */
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
 .event-card {
   background: var(--aub-gray);
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  max-width: 600px;
-  margin-top: 20px;
+  max-width: 650px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .event-title {
@@ -226,7 +236,7 @@ body {
 
 
 .event-buttons {
-  margin-top: 10px;
+  margin-top: auto;
   display: flex;
   gap: 10px;
 }

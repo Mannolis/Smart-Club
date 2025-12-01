@@ -1,14 +1,20 @@
 [
     {
         "id": "501",
-        "name": "Business Students Society"
+        "name": "Business Students Society",
+        "description": "",
+        "events": []
     },
     {
         "id": "502",
-        "name": "PPE Society"
+        "name": "PPE Society",
+        "description": "",
+        "events": []
     },
     {
         "id": "503",
-        "name": "Psychology Students Society"
+        "name": "Psychology Students Society",
+        "description": "",
+        "events": []
     }
 ]
