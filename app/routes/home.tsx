@@ -11,7 +11,7 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-function SignupButton() {
+export function SignupButton() {
   const [signedUp, setSignedUp] = React.useState(false);
 
   function toggleSignup() {
