@@ -231,7 +231,7 @@ export default function Events() {
             <div key={event.id} className="event-card">
               <div className="event-title">
                 {event.title}
-                <span style={{ fontWeight: 300 }}> ({event.club})</span>
+                <span style={{ fontWeight: 400 }}> ({event.club})</span>
               </div>
 
               <div className="event-time">{event.time}</div>
