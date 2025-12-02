@@ -383,6 +383,7 @@ body {
   flex-basis: 100%;
 }
 
+<<<<<<< HEAD
 /* Events grid */
 .events-page-grid {
   display: grid;
@@ -445,3 +446,65 @@ body {
   display: flex;
   gap: 10px;
 }
+=======
+/* ---------------------------
+   NEWS PAGE STYLING
+----------------------------*/
+.news-page {
+  padding: 32px;
+  background-color: var(--aub-white);
+}
+
+.news-header {
+  font-size: 40px;
+  color: var(--aub-maroon);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.news-card {
+  background-color: var(--aub-gray);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 24px;
+  margin-bottom: 24px;
+  max-width: 700px;
+}
+
+.news-title {
+  text-align: center;
+  font-size: 24px;
+  color: var(--aub-maroon-dark);
+  margin-bottom: 16px;
+}
+
+.news-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+
+.news-description {
+  flex: 1;
+  max-width: 450px; 
+  font-size: 16px;
+  color: var(--aub-black);
+  line-height: 1.6;
+}
+
+
+.news-image {
+  flex: 1;
+  max-width: 300px;
+  
+}
+
+.news-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+>>>>>>> 380a81ea5b1f0de62f6df47406e717a3c4e05f33
