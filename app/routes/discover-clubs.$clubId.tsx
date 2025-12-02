@@ -7,9 +7,10 @@ export default function clubPages() {
     const { clubId } = useParams(); //The ID of the club I want
     const club = clubsData.find(c => c.id === clubId); //Getting all the club data from the ID
 
+
     if (!club)
     {
-        return (
+            return (
             <div className = "events-container">
                 <Navbar />
                 <h1>Club not found</h1>
