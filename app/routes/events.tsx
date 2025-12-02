@@ -29,7 +29,10 @@ type EventItem = {
   title: string;
   time: string;
   description: string;
+  imageData?: string;
 };
+
+const STORAGE_KEY = "aubm-events";
 
 const CLUBS_AND_SOCIETIES = [
   "Athletics club",
@@ -66,32 +69,26 @@ export default function Events() {
     title: "",
     time: "",
     description: "",
+    imageData: "",
   });
 
-  /* -----------------------------
-     Load events from localStorage
-  ------------------------------*/
+  // Load events from localStorage once
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const storedEvents = localStorage.getItem("aubm-events");
-    if (storedEvents) {
-      try {
-        setEvents(JSON.parse(storedEvents));
-      } catch {
-        setEvents([]);
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) return;
+
+    try {
+      const parsed = JSON.parse(stored) as EventItem[];
+      if (Array.isArray(parsed)) {
+        setEvents(parsed);
       }
+    } catch {
+      console.error("Invalid stored events");
     }
   }, []);
 
-  /* -----------------------------
-     Save events to localStorage
-  ------------------------------*/
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    localStorage.setItem("aubm-events", JSON.stringify(events));
-  }, [events]);
-
-  function handleFieldChange(
+  // Handle text/select changes
+  function handleChange(
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
@@ -100,11 +97,27 @@ export default function Events() {
     setNewEvent((prev) => ({ ...prev, [name]: value }));
   }
 
+  // Handle image upload
+  function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      setNewEvent((prev) => ({
+        ...prev,
+        imageData: reader.result as string,
+      }));
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // Add event
   function handleAddEvent(e: React.FormEvent) {
     e.preventDefault();
 
     if (!newEvent.club || !newEvent.title || !newEvent.time) {
-      alert("Please fill in club, title, and time.");
+      alert("Club, title and time are required");
       return;
     }
 
@@ -114,51 +127,54 @@ export default function Events() {
       title: newEvent.title,
       time: newEvent.time,
       description: newEvent.description || "No description provided.",
+      imageData: newEvent.imageData || undefined,
     };
 
-    setEvents((prev) => [eventToAdd, ...prev]);
+    setEvents((prev) => {
+      const updated = [eventToAdd, ...prev];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+      return updated;
+    });
 
     setNewEvent({
       club: "",
       title: "",
       time: "",
       description: "",
+      imageData: "",
     });
   }
 
-  /* -----------------------------
-     DELETE EVENT (ADMIN ONLY)
-  ------------------------------*/
-  function handleDeleteEvent(eventId: number) {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this event?"
-    );
-    if (!confirmDelete) return;
+  // Delete event
+  function handleDeleteEvent(id: number) {
+    if (!window.confirm("Delete this event?")) return;
 
-    setEvents((prev) => prev.filter((event) => event.id !== eventId));
+    setEvents((prev) => {
+      const updated = prev.filter((e) => e.id !== id);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+      return updated;
+    });
   }
 
   return (
     <div>
       <Navbar />
 
-      <div className="events-page">
-        <div className="events-header">
+      <div className="events-page-container">
+        <div className="events-page-header">
           <h1>Events</h1>
 
-          <label className="admin-toggle">
+          <label className="events-admin-toggle">
             <input
               type="checkbox"
               checked={adminMode}
               onChange={(e) => setAdminMode(e.target.checked)}
             />
-            <span> Admin mode</span>
+            Admin mode
           </label>
         </div>
 
-        {/* -----------------------------
-           ADD EVENT FORM (ADMIN)
-        ------------------------------*/}
+        {/* Admin form to add events */}
         {adminMode && (
           <form className="event-form" onSubmit={handleAddEvent}>
             <h2>Add Event</h2>
@@ -169,9 +185,9 @@ export default function Events() {
                 <select
                   name="club"
                   value={newEvent.club}
-                  onChange={handleFieldChange}
+                  onChange={handleChange}
                 >
-                  <option value="">Select a club…</option>
+                  <option value="">Select...</option>
                   {CLUBS_AND_SOCIETIES.map((club) => (
                     <option key={club} value={club}>
                       {club}
@@ -181,12 +197,11 @@ export default function Events() {
               </label>
 
               <label>
-                Event Title
+                Title
                 <input
                   name="title"
                   value={newEvent.title}
-                  onChange={handleFieldChange}
-                  placeholder="Event title"
+                  onChange={handleChange}
                 />
               </label>
             </div>
@@ -197,23 +212,29 @@ export default function Events() {
                 <input
                   name="time"
                   value={newEvent.time}
-                  onChange={handleFieldChange}
-                  placeholder="April 3, 2025 · 6:00 PM"
+                  onChange={handleChange}
+                />
+              </label>
+
+              <label>
+                Image (optional)
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
                 />
               </label>
             </div>
 
-            <div className="form-row">
-              <label className="full-width">
-                Description
-                <textarea
-                  name="description"
-                  rows={3}
-                  value={newEvent.description}
-                  onChange={handleFieldChange}
-                />
-              </label>
-            </div>
+            <label className="full-width">
+              Description
+              <textarea
+                name="description"
+                rows={3}
+                value={newEvent.description}
+                onChange={handleChange}
+              />
+            </label>
 
             <button type="submit" className="signup-btn">
               Add Event
@@ -221,37 +242,48 @@ export default function Events() {
           </form>
         )}
 
-        {/* -----------------------------
-           EVENTS LIST
-        ------------------------------*/}
+        {/* Event cards */}
         {events.length === 0 ? (
-          <p>No events have been added yet.</p>
+          <p>No events yet.</p>
         ) : (
-          events.map((event) => (
-            <div key={event.id} className="event-card">
-              <div className="event-title">
-                {event.title}
-                <span style={{ fontWeight: 400 }}> ({event.club})</span>
-              </div>
+          <div className="events-page-grid">
+            {events.map((event) => (
+              <div key={event.id} className="events-page-card">
+                <div className="events-page-title">
+                  {event.title}{" "}
+                  <span style={{ fontWeight: 400 }}>({event.club})</span>
+                </div>
 
-              <div className="event-time">{event.time}</div>
-              <div className="event-description">{event.description}</div>
+                <div className="events-page-time">{event.time}</div>
 
-              <div className="event-buttons">
-                <SignupButton />
-                <button className="contact-btn">Contact for Details</button>
-
-                {adminMode && (
-                  <button
-                    className="delete-btn"
-                    onClick={() => handleDeleteEvent(event.id)}
-                  >
-                    Delete
-                  </button>
+                {event.imageData && (
+                  <img
+                    src={event.imageData}
+                    alt={event.title}
+                    className="events-page-image"
+                  />
                 )}
+
+                <div className="events-page-description">
+                  {event.description}
+                </div>
+
+                <div className="events-page-buttons">
+                  <SignupButton />
+                  <button className="contact-btn">Contact for Details</button>
+
+                  {adminMode && (
+                    <button
+                      className="delete-btn"
+                      onClick={() => handleDeleteEvent(event.id)}
+                    >
+                      Delete
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
-          ))
+            ))}
+          </div>
         )}
       </div>
     </div>
