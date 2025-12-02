@@ -31,6 +31,8 @@ type EventItem = {
   description: string;
 };
 
+const STORAGE_KEY = "aubm-events";
+
 const CLUBS_AND_SOCIETIES = [
   "Athletics club",
   "Automotive club",
@@ -69,28 +71,27 @@ export default function Events() {
   });
 
   /* -----------------------------
-     Load events from localStorage
+     LOAD EVENTS (once on mount)
   ------------------------------*/
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const storedEvents = localStorage.getItem("aubm-events");
-    if (storedEvents) {
-      try {
-        setEvents(JSON.parse(storedEvents));
-      } catch {
-        setEvents([]);
+
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) return;
+
+    try {
+      const parsed = JSON.parse(stored) as EventItem[];
+      if (Array.isArray(parsed)) {
+        setEvents(parsed);
       }
+    } catch {
+      console.error("Failed to read stored events");
     }
   }, []);
 
   /* -----------------------------
-     Save events to localStorage
+     FORM HANDLERS
   ------------------------------*/
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    localStorage.setItem("aubm-events", JSON.stringify(events));
-  }, [events]);
-
   function handleFieldChange(
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -116,7 +117,11 @@ export default function Events() {
       description: newEvent.description || "No description provided.",
     };
 
-    setEvents((prev) => [eventToAdd, ...prev]);
+    setEvents((prev) => {
+      const updated = [eventToAdd, ...prev];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+      return updated;
+    });
 
     setNewEvent({
       club: "",
@@ -126,16 +131,17 @@ export default function Events() {
     });
   }
 
-  /* -----------------------------
-     DELETE EVENT (ADMIN ONLY)
-  ------------------------------*/
   function handleDeleteEvent(eventId: number) {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this event?"
     );
     if (!confirmDelete) return;
 
-    setEvents((prev) => prev.filter((event) => event.id !== eventId));
+    setEvents((prev) => {
+      const updated = prev.filter((event) => event.id !== eventId);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+      return updated;
+    });
   }
 
   return (
@@ -156,9 +162,7 @@ export default function Events() {
           </label>
         </div>
 
-        {/* -----------------------------
-           ADD EVENT FORM (ADMIN)
-        ------------------------------*/}
+        {/* ADD EVENT FORM (ADMIN MODE ONLY) */}
         {adminMode && (
           <form className="event-form" onSubmit={handleAddEvent}>
             <h2>Add Event</h2>
@@ -186,7 +190,7 @@ export default function Events() {
                   name="title"
                   value={newEvent.title}
                   onChange={handleFieldChange}
-                  placeholder="Event title"
+                  placeholder="Chess Competition"
                 />
               </label>
             </div>
@@ -198,7 +202,7 @@ export default function Events() {
                   name="time"
                   value={newEvent.time}
                   onChange={handleFieldChange}
-                  placeholder="April 3, 2025 · 6:00 PM"
+                  placeholder="12/12/2025 – 4–5pm"
                 />
               </label>
             </div>
@@ -211,6 +215,7 @@ export default function Events() {
                   rows={3}
                   value={newEvent.description}
                   onChange={handleFieldChange}
+                  placeholder="Short description of the event..."
                 />
               </label>
             </div>
@@ -221,9 +226,7 @@ export default function Events() {
           </form>
         )}
 
-        {/* -----------------------------
-           EVENTS LIST
-        ------------------------------*/}
+        {/* EVENTS LIST */}
         {events.length === 0 ? (
           <p>No events have been added yet.</p>
         ) : (
