@@ -3,27 +3,13 @@
         "id": "001",
         "name": "Athletics club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "002",
         "name": "Automotive club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "003",
@@ -35,6 +21,18 @@
                 "title": "AUB Chess Tournament",
                 "description": "A swiss style tournament for all AUBM students",
                 "date": "12/12/25"
+            },
+            {
+                "id": "002",
+                "title": "AUB Chess Tournament 2",
+                "description": "Sigma Ligma, I hate my life",
+                "date": "15/12/25"
+            },
+            {
+                "id": "003",
+                "title": "AUB Chess Tournament 3",
+                "description": "Sigma Ligma, I love my life",
+                "date": "20/12/25"
             }
         ]
     },
@@ -42,221 +40,120 @@
         "id": "004",
         "name": "Consulting club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "005",
         "name": "Cooking club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "006",
         "name": "Dance club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "007",
         "name": "Finance and Investment club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "008",
         "name": "Math club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "009",
         "name": "MUN club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "010",
         "name": "Music club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "011",
         "name": "Pause the Loop club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "012",
         "name": "Person Branding/Digital Marketing club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "013",
         "name": "Philosophy club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "014",
         "name": "Programming club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "015",
         "name": "Robotics club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "016",
         "name": "Running club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "017",
         "name": "Social Events club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "018",
         "name": "Stargazing club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "019",
         "name": "Tennis and Paddle club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
     },
     {
         "id": "020",
         "name": "Umoja club",
         "description": "",
-        "events": [
-            {
-                "id": "001",
-                "title": "",
-                "description": "",
-                "date": ""
-            }
-        ]
+        "events": []
+    },
+    {
+        "id": "501",
+        "name": "Business Students Society",
+        "description": "",
+        "events": []
+    },
+    {
+        "id": "502",
+        "name": "PPE Society",
+        "description": "",
+        "events": []
+    },
+    {
+        "id": "503",
+        "name": "Psychology Students Society",
+        "description": "",
+        "events": []
     }
 ]
