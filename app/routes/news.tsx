@@ -9,7 +9,7 @@ export default function News() {
         <h1 className="news-header">📰 Club News & Announcements</h1>
 
         <div className="news-card">
-          <h2 className="news-title">Club Fest – November 15th</h2>
+          <h2 className="news-title">Culture Fest – November 15th</h2>
           <div className="news-content">
             <div className="news-description">
               <p>
