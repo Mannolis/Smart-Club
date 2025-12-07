@@ -91,10 +91,19 @@ http://localhost:5173
 ---
 
 
-## **Technologies To-Be-Used**
 
-- **Backend:** To create personalization features for student log-ins and sign-ups
-- **Styling & UX Enhancements:** CSS transitions, animations, and interactive elements for smoother page navigation and feature usage
+## Known Issues
+
+The following issues are currently present in the project and are planned for future improvement:
+
+* **Event Synchronization Issue**
+  The events throughout the website are not synced, which may cause inconsistencies across different sections.
+
+* **User Account System**
+  The user account system is not set up properly and may not function as expected.
+
+* **Admin Gate Access**
+  The admin gate is not set up properly, which affects access to administrative features.
 
 ---
 
