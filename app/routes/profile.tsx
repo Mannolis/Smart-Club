@@ -1,16 +1,23 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import "../app.css";
 import Navbar from "./navbar";
 
 export default function ProfilePage() {
+  const navigate = useNavigate();
+
   const username = localStorage.getItem("username") || "Student";
 
-  // Placeholder clubs (can be dynamic later)
   const clubs = ["Chess Club", "Music Club", "Robotics Club"];
+
+  function handleSignOut() {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("username");
+    navigate("/"); // go back to home
+  }
 
   return (
     <div>
-      {/* ✅ NAVBAR */}
       <Navbar />
 
       <div className="profile-page">
@@ -29,7 +36,7 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          {/* Account info */}
+          {/* Account */}
           <div className="profile-section">
             <h2 className="profile-section-title">Account</h2>
             <p>
@@ -43,7 +50,7 @@ export default function ProfilePage() {
 
             {clubs.length === 0 ? (
               <p className="profile-empty">
-                You haven’t joined any clubs yet. Explore clubs to get started!
+                You haven’t joined any clubs yet.
               </p>
             ) : (
               <div className="profile-clubs-list">
@@ -54,6 +61,13 @@ export default function ProfilePage() {
                 ))}
               </div>
             )}
+          </div>
+
+          {/* ✅ SIGN OUT BUTTON */}
+          <div className="profile-actions">
+            <button className="signout-btn" onClick={handleSignOut}>
+              Sign Out
+            </button>
           </div>
         </div>
       </div>

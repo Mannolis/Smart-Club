@@ -632,6 +632,29 @@ body {
   color: #555;
 }
 
+/* Sign out button */
+.profile-actions {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.signout-btn {
+  background-color: transparent;
+  border: 2px solid var(--aub-maroon);
+  color: var(--aub-maroon);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.signout-btn:hover {
+  background-color: var(--aub-maroon);
+  color: var(--aub-white);
+}
+
+
 /* About Us Page*/
 
 .about-container
