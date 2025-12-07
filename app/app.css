@@ -715,6 +715,39 @@ body {
   color: var(--aub-white);
 }
 
+.about-image-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.about-image {
+  max-width: 800px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.about-team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.team-member {
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.team-member h3 {
+  margin-top: 0;
+  color: var(--aub-maroon);
+}
+
+
 /* Event Calendar Styles */
 .calendar-container {
   max-width: 1200px;
