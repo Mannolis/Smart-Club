@@ -51,13 +51,13 @@ git --version
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-username/your-repository-name.git
+git clone https://github.com/Mannolis/Smart-Club.git
 ```
 
 2. **Navigate into the project directory**
 
 ```bash
-cd your-repository-name
+cd Smart-Club
 ```
 
 3. **Install dependencies**
@@ -70,13 +70,7 @@ npm install
 
 ### Running the Project
 
-To start the development server:
-
-```bash
-npm start
-```
-
-or (if using Vite):
+To start the website:
 
 ```bash
 npm run dev
@@ -92,16 +86,6 @@ or
 
 ```
 http://localhost:5173
-```
-
----
-
-### Build for Production
-
-To create an optimized production build:
-
-```bash
-npm run build
 ```
 
 ---
