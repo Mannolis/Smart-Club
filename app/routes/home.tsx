@@ -1,16 +1,12 @@
 import type { Route } from "./+types/home";
-// The following three imports are required and look correct now:
+import React from "react";
+import { useNavigate } from "react-router";
+import "../app.css"; // CSS file
 import Navbar from "./navbar";
-import React from "react"; 
-
-// ADD THIS LOADER FUNCTION
-export async function loader() {
-  return {}; 
-}
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New Meow Meow App" },
+    { title: "Smart-Club" },
     { name: "description", content: "Welcome to Smart Club!" },
   ];
 }
