@@ -8,46 +8,55 @@ export default function DiscoverClubs() {
   const clubs = clubsData;
   return (
     <div className="discover-clubs">
-        <Navbar />
-        <h1>Current Clubs</h1>
-        {
-          (() => {
-            const elements = [];
+      <Navbar />
+      <h1>Current Clubs</h1>
+      {
+        (() => {
+          const elements = [];
 
-            for (let i = 0; i < clubs.length; i++)
-            {
-              if (clubs[i].id == "501")
-                break;
-              elements.push(
-                <Link to={`/discover-clubs/${clubs[i].id}`} className = "club-link">
-                  {clubs[i].name}
-                </Link>
-              );
+          for (let i = 0; i < clubs.length; i++) {
+            if (clubs[i].id == "501") {
+              break;
             }
-            return elements;
-          })()
-        }
+            elements.push(
+              <Link key={clubs[i].id} to={`/discover-clubs/${clubs[i].id}`} className="club-link">
+                {clubs[i].name}
+              </Link>
+            );
+          }
+          return elements;
+        })()
+      }
 
-        <h1>Current Societies</h1>
-        {
-          (() => {
-            const elements = [];
+      <h1>Current Societies</h1>
+      {
+        (() => {
+          const elements = [];
 
-            for (let i = clubs.length - 1; i >= 0; i--)
-            {
-              if (clubs[i].id[0] == '0')
-                break;
-              
-              elements.push(
-                <Link to={`/discover-clubs/${clubs[i].id}`} className = "club-link">
-                  {clubs[i].name}
-                </Link>
-              );
+          for (let i = clubs.length - 1; i >= 0; i--) {
+            if (clubs[i].id[0] == '0') {
+              break;
             }
-            elements.reverse();
-            return elements;
-          })()
-        }
+
+            elements.push(
+              <Link key={clubs[i].id} to={`/discover-clubs/${clubs[i].id}`} className="club-link">
+                {clubs[i].name}
+              </Link>
+            );
+          }
+          elements.reverse();
+          return elements;
+        })()
+      }
+
+      <footer className="about-footer">
+        <div className="footer-item">📧 smartclub@aubmed.ac.cy</div>
+        <div className="footer-item">📍 AUB Mediterraneo, Paphos, Cyprus</div>
+
+        <div className="footer-copyright">
+          © {new Date().getFullYear()} Smart Club. All rights reserved.
+        </div>
+      </footer>
     </div>
-  );
+  )
 }

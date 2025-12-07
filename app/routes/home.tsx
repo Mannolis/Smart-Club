@@ -101,6 +101,15 @@ export default function HomePage() {
         </div>
       </div>
     </section>
+
+    <footer className="about-footer">
+          <div className="footer-item">📧 smartclub@aubmed.ac.cy</div>
+          <div className="footer-item">📍 AUB Mediterraneo, Paphos, Cyprus</div>
+
+          <div className="footer-copyright">
+            © {new Date().getFullYear()} Smart Club. All rights reserved.
+          </div>
+        </footer>
     </div>
   );
 }

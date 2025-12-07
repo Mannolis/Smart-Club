@@ -13,7 +13,9 @@ export default function News() {
           <div className="news-content">
             <div className="news-description">
               <p>
-                Club Fest is happening this Friday! Join us for a vibrant showcase of student clubs, performances, and sign-up opportunities. Don’t miss out on discovering your next passion!
+                Club Fest is happening this Friday! 
+                Join us for a vibrant showcase of student clubs, performances, and sign-up opportunities. 
+                Let's discover your next passion!
               </p>
             </div>
             <div className="news-image">
@@ -28,15 +30,41 @@ export default function News() {
           <div className="news-content">
             <div className="news-description">
               <p>
-                AUB Mediterraneo will be joining the annual Ohi Day march held on October 28! All club members are encouraged to participate and show unity. Let’s make this celebration unforgettable!
+                AUB Mediterraneo will be joining the annual Ohi Day march held on October 28! 
+                All club members are encouraged to participate and show unity. 
+                Let’s make this celebration unforgettable!
               </p>
             </div>
             <div className="news-image">
-              {/* Local image from public/newsImages */}
               <img src="/newsImages/ohiDay.png" alt="Ohi Day March" />
             </div>
           </div>
         </div>
+
+        <div className="news-card">
+          <h2 className="news-title">Christmas Party — December 5</h2>
+          <div className="news-content">
+            <div className="news-description">
+              <p>Join us for the final Student Body gathering before exam season begins!  
+              We’re hosting a festive Christmas Party on <strong>December 5th 3:00PM-9:00PM</strong>.  
+              Expect music, activities, snacks, and a warm celebration to wrap up the semester — don’t miss the last big event of the year!
+              </p>
+            </div>
+            <div className="news-image">
+            <img src="/newsImages/christmasParty.png" alt="Christmas Party Celebration" />
+            </div>
+          </div>
+        </div>
+
+        <footer className="about-footer">
+          <div className="footer-item">📧 smartclub@aubmed.ac.cy</div>
+          <div className="footer-item">📍 AUB Mediterraneo, Paphos, Cyprus</div>
+
+          <div className="footer-copyright">
+            © {new Date().getFullYear()} Smart Club. All rights reserved.
+          </div>
+        </footer>
+
       </section>
     </div>
   );
