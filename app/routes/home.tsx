@@ -32,7 +32,7 @@ export function SignupButton() {
 }
 
 export default function HomePage() {
-
+  const navigate = useNavigate();
   return (
   <div>
     <Navbar />
@@ -45,7 +45,11 @@ export default function HomePage() {
       Explore a variety of student clubs, connect with your community, and
       discover your next passion.
     </p>
-    <button className="hero-button">Explore Clubs</button>
+    <button 
+    className="hero-button"
+     onClick={() => navigate("/discover-clubs")}>
+          Discover Clubs
+    </button>
 
   </div>
   </section>
