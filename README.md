@@ -90,6 +90,14 @@ http://localhost:5173
 
 ---
 
+
+## **Technologies To-Be-Used**
+
+- **Backend:** To create personalization features for student log-ins and sign-ups
+- **Styling & UX Enhancements:** CSS transitions, animations, and interactive elements for smoother page navigation and feature usage
+
+---
+
 ### Notes
 
 * All club and event data is stored in **JSON files**
