@@ -15,12 +15,6 @@ Stay updated with upcoming events, celebrations, and important club news.
 ### **3. Events Calendar**
 Check the schedule of all club-related events and **RSVP directly** from the site.
 
-### **4. Responsive Design**
-Optimized for both **desktop and mobile browsing**.
-
-### **5. Student Body Engagement**
-Provides a central hub for students to explore, participate, and stay involved in campus life.
-
 ---
 
 ## **Technologies Used**
@@ -29,3 +23,91 @@ Provides a central hub for students to explore, participate, and stay involved i
 - **Routing:** React Router  
 - **Data:** JSON files for club and event information  
 - **Styling:** Custom CSS with CSS variables for *AUB theme colors*
+
+## **Setup Instructions**
+
+Follow the steps below to run the project locally on your machine.
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+* **Node.js** (v16 or later recommended)
+* **npm** (comes with Node.js)
+* **Git**
+
+You can verify installation using:
+
+```bash
+node -v
+npm -v
+git --version
+```
+
+---
+
+### Installation
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/your-username/your-repository-name.git
+```
+
+2. **Navigate into the project directory**
+
+```bash
+cd your-repository-name
+```
+
+3. **Install dependencies**
+
+```bash
+npm install
+```
+
+---
+
+### Running the Project
+
+To start the development server:
+
+```bash
+npm start
+```
+
+or (if using Vite):
+
+```bash
+npm run dev
+```
+
+The website will run locally at:
+
+```
+http://localhost:3000
+```
+
+or
+
+```
+http://localhost:5173
+```
+
+---
+
+### Build for Production
+
+To create an optimized production build:
+
+```bash
+npm run build
+```
+
+---
+
+### Notes
+
+* All club and event data is stored in **JSON files**
+* Styling is managed using **custom CSS with CSS variables**
+* Routing is handled via **React Router**
