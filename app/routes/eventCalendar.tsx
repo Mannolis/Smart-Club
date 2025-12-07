@@ -361,8 +361,9 @@ export default function EventCalendar() {
             </div>
           )}
         </div>
+      </div>
 
-        <footer className="about-footer">
+      <footer className="about-footer">
           <div className="footer-item">📧 smartclub@aubmed.ac.cy</div>
           <div className="footer-item">📍 AUB Mediterraneo, Paphos, Cyprus</div>
 
@@ -371,7 +372,6 @@ export default function EventCalendar() {
           </div>
         </footer>
         
-      </div>
     </div>
   );
 }

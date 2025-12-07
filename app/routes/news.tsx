@@ -55,8 +55,9 @@ export default function News() {
             </div>
           </div>
         </div>
+      </section>
 
-        <footer className="about-footer">
+      <footer className="about-footer">
           <div className="footer-item">📧 smartclub@aubmed.ac.cy</div>
           <div className="footer-item">📍 AUB Mediterraneo, Paphos, Cyprus</div>
 
@@ -64,8 +65,6 @@ export default function News() {
             © {new Date().getFullYear()} Smart Club. All rights reserved.
           </div>
         </footer>
-
-      </section>
     </div>
   );
 }
